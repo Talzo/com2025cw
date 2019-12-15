@@ -1,0 +1,22 @@
+<div class="well">
+  <p><%= label_tag(:q, "#MyFess") %><%= label_tag(:q, @post.id) %></p>
+  <p><%= @post.body %></p>
+</div>
+<h3 style="color: #ddac0d; font-family: 'Ink Free'">Add Comment:</h3>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  <p>
+    <%= f.text_area(:body, {:class => 'form-control'}) %>
+  </p>
+  <p>
+    <%= f.submit({:class => 'btn btn-primary'}) %>
+  </p>
+<% end %>
+<h3 style="color: #ddac0d; font-family: 'Ink Free'">Comments</h3>
+<% @post.comments.each do |comment| %>
+  <% if !comment.id.nil? %>
+    <div class="well">
+    <p><strong><%= comment.body %></strong></p>
+    </div>
+  <% end %>
+<% end %>
+<p style="color: #f9f5f1; font-family: 'Ink Free'"><strong><%= @post.comments.count %> Comment(s)</strong></p>

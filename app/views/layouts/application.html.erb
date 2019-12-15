@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MyFess</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <body style="background-color:rgb(82,82,82); color: black;"></body>
+    <%= render "layouts/header"%>
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+    <%= content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank? %>
+  <% end %>
+    <div class="container">
+    <%= yield %>
+    </div>
+    <%= render "layouts/footer"%>
+  </body>
+</html>

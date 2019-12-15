@@ -1,0 +1,18 @@
+<h3 style="color: #ddac0d; font-family: 'Ink Free'">Paste anonymous message:</h3>
+<%= form_for :post, url: admin_path do |f| %>
+  <% if @post.errors.any? %>
+    <% @post.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+  <%= f.text_area(:body, {:class => 'form-control'}) %>
+  <%= f.submit('Post', {:class => 'btn btn-primary'}) %>
+<% end %>
+<br>
+<% @requests.each do |request| %>
+    <div class="well">
+    <p><%= request.body %></p>
+      <%= link_to "Discard", { action: :destroy, id: request.id }, method: :delete,
+                  data: {confirm: 'Discard submission?'}, :class => 'btn btn-danger' %>
+    </div>
+<% end %>

@@ -1,0 +1,18 @@
+<h3 style="color: #ddac0d; font-family: 'Ink Free'">Tell us anything...</h3>
+<%= form_for :post, url: home_path do |f| %>
+  <% if @request.errors.any? %>
+      <% @request.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger"><%= msg %></div>
+    <% end %>
+  <% end %>
+  <%= f.text_area(:body, {:class => 'form-control'}) %>
+  <%= f.submit('Send', {:class => 'btn btn-primary'}) %>
+<% end %>
+<br>
+<% @posts.each do |post| %>
+  <div class="well">
+    <p><%= label_tag(:q, "#MyFess") %><%= label_tag(:q, post.id) %></p>
+    <p><%= post.body %></p>
+    <%= link_to "More", post_path(post), :class => 'btn btn-default' %>
+  </div>
+<% end %>
