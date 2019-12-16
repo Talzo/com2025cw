@@ -30,10 +30,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+
+# Variables for pages
   app_title: "MyFess"
   home_title: "Tell us anything..."
   admin_title: "Paste anonymous message:"
 
+# Variables for contact page
   home:
     contact:
      title: "Contact Us"

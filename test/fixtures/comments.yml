@@ -5,5 +5,5 @@ one:
   post: one
 
 two:
-  body: MyText
+  body: MyText1
   post: two
