@@ -17,5 +17,4 @@ class AdminControllerTest < ActionDispatch::IntegrationTest
   end
     assert_redirected_to admin_url
   end
-  
 end

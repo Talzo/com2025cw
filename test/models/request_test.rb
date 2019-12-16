@@ -2,6 +2,11 @@ require 'test_helper'
 
 class RequestTest < ActiveSupport::TestCase
 
+# Tests validations
+  test "the truth" do
+    assert true
+  end
+
 # Empty requests do not get sent
   test 'should not save empty request' do
     request = Request.new
@@ -18,5 +23,11 @@ class RequestTest < ActiveSupport::TestCase
 
     request.save
     assert request.valid?
+  end
+
+# Delete a request
+  test 'should delete request' do
+    request = Request.new(body: "MyText")
+    request.destroy
   end
 end

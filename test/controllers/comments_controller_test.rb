@@ -7,6 +7,11 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     @post = posts(:one)
   end
 
+# Tests validations
+  test "the truth" do
+    assert true
+  end
+
 # Create new comment
   test "should create comment" do
     assert_difference('Comment.count') do

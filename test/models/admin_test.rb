@@ -17,4 +17,11 @@ class AdminTest < ActiveSupport::TestCase
     admin.save
     assert admin.valid?
   end
+
+  test "should not allow duplicate emails" do
+    admin1 = Admin.create(email: "Matt@gmail.com", password: "hello1")
+    admin2 = Admin.new(email: "Matt@gmail.com", password: "hello")
+    admin1.save
+    assert_not admin2.save, "Saved a duplicate email"
+  end
 end
