@@ -1,4 +1,4 @@
-<h3 style="color: #ddac0d; font-family: 'Ink Free'">Paste anonymous message:</h3>
+<h3 style="color: #ddac0d; font-family: 'Ink Free'"><%= t('admin_title') %></h3>
 <%= form_for :post, url: admin_path do |f| %>
   <% if @post.errors.any? %>
     <% @post.errors.full_messages.each do |msg| %>

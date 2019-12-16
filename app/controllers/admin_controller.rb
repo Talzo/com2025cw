@@ -1,33 +1,39 @@
 class AdminController < ApplicationController
-    def admin
-        @post = Post.new
-        @requests = Request.all
-    end
 
-    def new
-        @post = Post.new
-    end
+# Add new post and display all requests
+  def admin
+      @post = Post.new
+      @requests = Request.all
+  end
 
-    def create
-        @requests = Request.all
-        @post = Post.new(post_params)
+# Add a new post
+  def new
+      @post = Post.new
+  end
 
-        if @post.save
-            flash[:success] = "Posted!"
-            redirect_to admin_path
-        else
-            render 'admin'
-        end
-    end
+# Create a new post by the admin
+  def create
+      @requests = Request.all
+      @post = Post.new(post_params)
 
-    def destroy
-        @request = Request.find(params[:id])
-        @request.destroy
+      if @post.save
+          flash[:success] = "Posted!"
+          redirect_to admin_path
+      else
+          render 'admin'
+      end
+  end
 
-        redirect_to admin_path
-    end
+# Delete a request by the admin
+  def destroy
+      @request = Request.find(params[:id])
+      @request.destroy
 
-    private def post_params
-        params.require(:post).permit(:body)
-    end
+      redirect_to admin_path
+  end
+
+# Define parameters of the post
+  private def post_params
+      params.require(:post).permit(:body)
+  end
 end

@@ -1,8 +1,11 @@
 class CommentsController < ApplicationController
 
+# Display comments
   def index
+
   end
 
+# Create a new comment under a specific post
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
@@ -15,6 +18,7 @@ class CommentsController < ApplicationController
     end
   end
 
+# Define parameters of a comment
   private def comment_params
       params.require(:comment).permit(:body)
   end

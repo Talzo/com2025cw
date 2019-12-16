@@ -31,10 +31,12 @@
 
 en:
   app_title: "MyFess"
-  
+  home_title: "Tell us anything..."
+  admin_title: "Paste anonymous message:"
+
   home:
     contact:
-     title: "Contact us"
+     title: "Contact Us"
 
      name: "Name:"
      enter_name: Enter your name

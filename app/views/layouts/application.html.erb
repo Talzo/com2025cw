@@ -14,7 +14,6 @@
     <%= render "layouts/header"%>
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
-    <%= content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank? %>
   <% end %>
     <div class="container">
     <%= yield %>
